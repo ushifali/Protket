@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:protekt/components/navigation_bar.dart';
+import '../components/fab.dart';
 class Page1 extends StatelessWidget {
   const Page1({Key? key}) : super(key: key);
 
@@ -23,9 +24,12 @@ class Page1 extends StatelessWidget {
         ],
       ),
 
-      // body: SafeArea(
-      //
-      // ),
+      body: Center(
+        child: SafeArea(
+          child: Nav()
+
+        ),
+      ),
 
     );
   }

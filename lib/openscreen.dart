@@ -1,3 +1,6 @@
+import 'dart:ui';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
 import 'register.dart';
@@ -21,18 +24,7 @@ class OpenScreen extends StatelessWidget {
         child: Center(
           child: Stack(
             children: <Widget>[
-              ClipShadowPath(
-                shadow: const BoxShadow(
-                  color: Colors.black,
-                  offset: Offset(4, 4),
-                  blurRadius: 0.1,
-                  spreadRadius: 1,
-                ),
-                clipper: BigClipper(),
-                child: Container(
-                  color: Colors.indigo[200],
-                ),
-              ),
+
 
               ClipShadowPath(
                 shadow: const BoxShadow(
@@ -43,29 +35,36 @@ class OpenScreen extends StatelessWidget {
                 ),
                 clipper: SmallClipper(),
                 child: Container(
-                  color: Colors.indigo[400],
+                  color: Colors.yellow[200],
                 ),
               ),
-              // SizedBox(height: 160.0),
 
               Align(
-                alignment: Alignment(0.0, -0.3),
+                  alignment: Alignment(0.0, -0.3),
+                  child: Image.asset('assets/images/walkhomegif.gif')
+
+              ),
+              
+
+              Align(
+                alignment: Alignment(0.0, -0.8),
                 child: Text(
                   'Protekt',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 58.0,
+                    fontSize: 60.0,
                     fontWeight: FontWeight.w900,
                     fontFamily: 'SignikaNegative',
-                    //letterSpacing: 6.0,
+                    letterSpacing: 3.0,
+
                   ),
                 ),
               ),
 
               Align(
-                alignment: Alignment(0.0, -0.18),
+                alignment: Alignment(0.0, -0.63),
                 child: Text(
-                  'An app to protect',
+                  'Better Safe than Sorry',
                   style: TextStyle(
                     fontSize: 22.0,
                     fontFamily: 'SignikaNegative',
@@ -76,7 +75,7 @@ class OpenScreen extends StatelessWidget {
               //SizedBox(height: 100.0),
 
               Align(
-                alignment: Alignment(0, 0.1),
+                alignment: Alignment(0, 0.3),
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -107,7 +106,7 @@ class OpenScreen extends StatelessWidget {
               //SizedBox(height: 13.0),
 
               Align(
-                alignment: Alignment(0.0, 0.28),
+                alignment: Alignment(0.0, 0.48),
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -141,9 +140,9 @@ class OpenScreen extends StatelessWidget {
               Align(
                 alignment: Alignment(0, 0.85),
                 child: Text(
-                  'Lorem epsum',
+                  'When Safety is First',
                   style: TextStyle(
-                    fontSize: 22.0,
+                    fontSize: 20.0,
                     fontFamily: 'SignikaNegative_Light',
                   ),
                 ),
@@ -152,9 +151,9 @@ class OpenScreen extends StatelessWidget {
               Align(
                 alignment: Alignment(0, 0.9),
                 child: Text(
-                  'Lorem epsum',
+                  'You Last',
                   style: TextStyle(
-                    fontSize: 22.0,
+                    fontSize: 20.0,
                     fontFamily: 'SignikaNegative_Light',
                   ),
                 ),
@@ -162,21 +161,21 @@ class OpenScreen extends StatelessWidget {
 
               //SizedBox(height: 13.0),
 
-              Align(
-                alignment: Alignment(0, 0.97),
-                child: Text(
-                  'Lorem epsum',
-                  style: TextStyle(
-                    fontSize: 22.0,
-                    fontFamily: 'SignikaNegative',
-                  ),
-                ),
-              ),
+              // Align(
+              //   alignment: Alignment(0, 0.97),
+              //   child: Text(
+              //     'Protekt',
+              //     style: TextStyle(
+              //       fontSize: 22.0,
+              //       fontFamily: 'SignikaNegative',
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
       ),
-      backgroundColor: Colors.indigo[300],
+      backgroundColor: Colors.yellow[100],
     );
   }
 }

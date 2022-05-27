@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:protekt/on_login_pages/settings.dart';
+import 'package:protekt/register.dart';
 import 'additional_designs/custom_clippers.dart';
 import 'additional_designs/clipper_shadows.dart';
-
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -11,52 +14,58 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Colors.indigo[400],
+        backgroundColor: Colors.black,
       ),
       body: SafeArea(
         child: Center(
           child: Stack(
             children: <Widget>[
-              ClipShadowPath(
-                shadow: const BoxShadow(
-                  color: Colors.black,
-                  offset: Offset(4, 4),
-                  blurRadius: 0.1,
-                  spreadRadius: 1,
-                ),
-                clipper: BigClipper(),
-                child: Container(
-                  color: Colors.indigo[200],
-                ),
-              ),
+              Align(
+                  alignment: Alignment(0.0, -0.6),
+                  child: Image.asset(
+                    'assets/images/login.gif',
+                    height: 200,
+                    width: 200,
+                  )),
+              // ClipShadowPath(
+              //   shadow: const BoxShadow(
+              //     color: Colors.black,
+              //     offset: Offset(1, 0),
+              //
+              //
+              //   ),
+              //   clipper: BigClipper(),
+              //   child: Container(
+              //     color: Colors.yellow[300],
+              //   ),
+              // ),
 
-              ClipShadowPath(
-                shadow: const BoxShadow(
-                  color: Colors.black,
-                  offset: Offset(4, 4),
-                  blurRadius: 0.1,
-                  spreadRadius: 1,
-                ),
-                clipper: SmallClipper(),
-                child: Container(
-                  color: Colors.indigo[400],
-                ),
-              ),
-              // SizedBox(height: 160.0),
+              // ClipShadowPath(
+              //   shadow: const BoxShadow(
+              //     color: Colors.black,
+              //     offset: Offset(0,1),
+              //
+              //   ),
+              //   clipper: SmallClipper(),
+              //   child: Container(
+              //     color: Colors.yellow[200],
+              //   ),
+              // ),
+              // // SizedBox(height: 160.0),
 
               Align(
-                alignment: Alignment(0.0, -0.6),
+                alignment: Alignment(0.0, -0.8),
                 child: Text(
                   'Login',
                   style: TextStyle(
-                    fontSize: 42.0,
-                    fontFamily: 'SignikaNegative',
-                  ),
+                      fontSize: 52.0,
+                      fontFamily: 'SignikaNegative',
+                      letterSpacing: 3.0),
                 ),
               ),
 
               Align(
-                alignment: Alignment(0, -0.4),
+                alignment: Alignment(0, -0.2),
                 child: Container(
                   width: 320.0,
                   child: TextField(
@@ -71,7 +80,7 @@ class LoginScreen extends StatelessWidget {
               ),
 
               Align(
-                alignment: Alignment(0, -0.2),
+                alignment: Alignment(0, 0.0),
                 child: Container(
                   width: 320.0,
                   child: TextFormField(
@@ -89,14 +98,12 @@ class LoginScreen extends StatelessWidget {
               ),
 
               Align(
-                alignment: Alignment(0.0, 0.0),
+                alignment: Alignment(0.0, 0.2),
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => LoginScreen()
-                      ),
+                      MaterialPageRoute(builder: (context) => SettingsPage()),
                     );
                   },
                   child: Text(
@@ -121,7 +128,7 @@ class LoginScreen extends StatelessWidget {
 
               //SizedBox(height: 260.0),
               Align(
-                alignment: Alignment(0, 0.2),
+                alignment: Alignment(0, 0.4),
                 child: Text(
                   '---------- OR ----------',
                   style: TextStyle(
@@ -132,33 +139,96 @@ class LoginScreen extends StatelessWidget {
               ),
 
               Align(
-                alignment: Alignment(0.0, 0.4),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Login Using Google',
-                    style: TextStyle(
-                      color: Colors.white,
+                alignment: Alignment(0.0, 0.6),
+                child: InkWell(
+
+
+                  onTap: () {},
+                  child: Ink(
+
+                    color: Colors.black,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(60, 18, 60, 18),
+
+                      child: Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          Image.asset('assets/images/google.png',height:20,width: 20,), // <-- Use 'Image.asset(...)' here
+                          SizedBox(width: 22),
+                          Text('Sign in with Google',style: TextStyle(
+                                     fontSize: 20,
+                                      letterSpacing: 1,
+                                      color: Colors.white,
+                                      fontFamily: 'SignikaNegative',
+                                      fontWeight: FontWeight.bold,),)
+                        ],
+                      ),
                     ),
                   ),
-                  style: ElevatedButton.styleFrom(
-                      primary: Colors.black,
-                      fixedSize: const Size(320, 55),
-                      side: BorderSide(color: Colors.black),
-                      //do not give padding buttons wont be of same size
-                      // padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
-                      textStyle: TextStyle(
-                        fontSize: 22,
-                        fontFamily: 'SignikaNegative',
-                        //fontWeight: FontWeight.bold
-                      )),
                 ),
               ),
+              // Align(
+              //   alignment: Alignment(0.0, 0.6),
+              //   child: ElevatedButton(
+              //     onPressed: () {},
+              //     child: Text(
+              //       'Login Using Google',
+              //       style: TextStyle(
+              //         color: Colors.white,
+              //       ),
+              //     ),
+              //     style: ElevatedButton.styleFrom(
+              //         primary: Colors.black,
+              //         fixedSize: const Size(320, 55),
+              //         side: BorderSide(color: Colors.black),
+              //         //do not give padding buttons wont be of same size
+              //         // padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+              //         textStyle: TextStyle(
+              //           fontSize: 22,
+              //           fontFamily: 'SignikaNegative',
+              //           //fontWeight: FontWeight.bold
+              //         )),
+              //   ),
+              // ),
+
+              Align(
+                alignment: Alignment(0, 0.75),
+                child: Text(
+                  'Do not Have An Account?',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontFamily: 'SignikaNegative_Light',
+                  ),
+                ),
+              ),
+
+              Align(
+                alignment: Alignment(0.0, 0.85),
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RegisterScreen()),
+                    );
+
+                  },
+                  child: Text(
+                    "Click Here",
+                    style: TextStyle(
+                        color: Colors.indigo,
+                        decoration: TextDecoration.underline,
+                        fontSize: 18.0),
+                  ),
+
+
+                ),
+              ),
+
             ],
           ),
         ),
       ),
-      backgroundColor: Colors.indigo[400],
+      backgroundColor: Colors.yellow[100],
     );
   }
 }

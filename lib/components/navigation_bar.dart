@@ -28,22 +28,22 @@ class _NavState extends State<Nav> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-            ),
-            label:'Home'
+              icon: Icon(
+                Icons.home,
+              ),
+              label:'Home'
 
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.add_box_outlined,
-            ),
+              icon: Icon(
+                Icons.add_box_outlined,
+              ),
               label:'Messages'
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
-            ),
+              icon: Icon(
+                Icons.person,
+              ),
               label:'Profile'
           ),
         ],
