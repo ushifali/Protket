@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -72,8 +73,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   width: 8,
                 ),
                 Text(
-                  "Notifications",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  "Advanced Settings",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -84,12 +85,79 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 10,
             ),
-            buildNotificationOptionRow("New for you", true),
-            buildNotificationOptionRow("Account activity", true),
-            buildNotificationOptionRow("Opportunity", false),
-            SizedBox(
-              height: 50,
+
+            Row(
+              children: [
+                Text("Enable SOS on shake",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                SizedBox(
+                  width: 60,
+                ),
+
+                Container(
+                  height: 40,
+                  child: LiteRollingSwitch(
+                    value: false,
+                    textOn: "On",
+                    textOff: "Off",
+                    colorOn: Colors.green,
+                    colorOff: Colors.red,
+                    iconOn: Icons.done,
+                    iconOff: Icons.close,
+                    textSize: 18,
+                    onChanged: (bool position) {
+                      print("Button is $position");
+                    },
+                  ),
+                ),
+              ],
             ),
+
+
+            SizedBox(
+              height:30,
+            ),
+
+            Row(
+              children: [
+                Text("Enable live location sharing",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+
+                SizedBox(
+                  width: 20,
+                ),
+
+
+                Container(
+                  height: 40,
+                  child: LiteRollingSwitch(
+                    value: false,
+                    textOn: "On",
+                    textOff: "Off",
+                    colorOn: Colors.green,
+                    colorOff: Colors.red[400],
+                    iconOn: Icons.done,
+                    iconOff: Icons.close,
+                    textSize: 18,
+                    onChanged: (bool position) {
+                      print("Button is $position");
+                    },
+                  ),
+                ),
+              ],
+            ),
+
+
+            SizedBox(
+              height:20,
+            ),
+
             Center(
               child: OutlineButton(
                 padding: EdgeInsets.symmetric(horizontal: 40),

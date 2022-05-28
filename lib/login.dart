@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:protekt/on_login_pages/page.dart';
 import 'package:protekt/on_login_pages/settings.dart';
 import 'package:protekt/register.dart';
 import 'additional_designs/custom_clippers.dart';
@@ -103,7 +104,7 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SettingsPage()),
+                      MaterialPageRoute(builder: (context) => Page1()),
                     );
                   },
                   child: Text(

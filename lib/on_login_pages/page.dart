@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:protekt/components/navigation_bar.dart';
+import 'package:protekt/on_login_pages/settings.dart';
 import '../components/fab.dart';
 class Page1 extends StatelessWidget {
   const Page1({Key? key}) : super(key: key);
@@ -9,16 +10,19 @@ class Page1 extends StatelessWidget {
 
     return Scaffold(
       appBar:AppBar(
-        title: Text('Settings'),
-        backgroundColor: Colors.indigo,
+
+        backgroundColor: Colors.white,
         actions: <Widget>[
           IconButton(
             icon: Icon(
               Icons.settings,
-              color: Colors.white,
+              color: Colors.black,
             ),
             onPressed: () {
-              // do something
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SettingsPage()),
+              );
             },
           )
         ],

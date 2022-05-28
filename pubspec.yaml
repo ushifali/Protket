@@ -30,6 +30,7 @@ dependencies:
   switcher_button: ^0.0.4
   flutter:
     sdk: flutter
+  lite_rolling_switch: ^0.1.1
 
 
   # The following adds the Cupertino Icons font to your application.
