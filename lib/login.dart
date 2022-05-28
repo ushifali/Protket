@@ -6,6 +6,8 @@ import 'package:protekt/on_login_pages/settings.dart';
 import 'package:protekt/register.dart';
 import 'additional_designs/custom_clippers.dart';
 import 'additional_designs/clipper_shadows.dart';
+import 'components/navigation_bar.dart';
+import 'on_login_pages/homepage.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -104,7 +106,7 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Page1()),
+                      MaterialPageRoute(builder: (context) => BottomBar()),
                     );
                   },
                   child: Text(
@@ -144,7 +146,12 @@ class LoginScreen extends StatelessWidget {
                 child: InkWell(
 
 
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Homepage()),
+                    );
+                  },
                   child: Ink(
 
                     color: Colors.black,

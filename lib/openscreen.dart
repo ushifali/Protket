@@ -21,7 +21,9 @@ class OpenScreen extends StatelessWidget {
       //both arent suitable for responsiveness
       resizeToAvoidBottomInset: false,
       body: SafeArea(
+
         child: Center(
+
           child: Stack(
             children: <Widget>[
 

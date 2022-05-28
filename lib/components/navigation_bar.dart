@@ -1,55 +1,77 @@
 import 'package:flutter/material.dart';
 
-class Nav extends StatefulWidget {
+import '../on_login_pages/fake_call.dart';
+import '../on_login_pages/homepage.dart';
+
+class BottomBar extends StatefulWidget {
+  BottomBar({Key?key}) : super(key: key);
+
   @override
-  _NavState createState() => _NavState();
+  _BottomBarState createState() => _BottomBarState();
 }
 
-class _NavState extends State<Nav> {
+class _BottomBarState extends State<BottomBar> {
+  int _page = 0;
+  late PageController _pageController;
 
-  int _selectedIndex = 0;
-
-  List<Widget> _widgetOptions = <Widget>[
-    Text('Messgaes Screen'),
-    Text('Profile Screen'),
-  ];
-
-  void _onItemTap(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+  @override
+  void initState() {
+    _pageController = PageController(initialPage: _page);
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              label:'Home'
+          currentIndex: _page,
+          onTap: (index) {
+            this._pageController.animateToPage(index,
+                duration: Duration(milliseconds: 500), curve: Curves.easeIn);
+          },
 
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.add_box_outlined,
-              ),
-              label:'Messages'
-          ),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person,
-              ),
-              label:'Profile'
-          ),
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.grey,
+          items: <BottomNavigationBarItem>[
+            new BottomNavigationBarItem(
+                icon: Icon(Icons.home), label: "Home"),
+            new BottomNavigationBarItem(icon: Icon(Icons.call), label: "Fake Call"),
+            new BottomNavigationBarItem(
+                icon: Icon(Icons.message), label: "Messages"),
+
+          ]),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (newpage) {
+          setState(() {
+            this._page = newpage;
+          });
+        },
+        children: [
+          Homepage(),
+         Fake_Call(),
+          singlechild(title: "Call", icon: Icons.call, color: Colors.blue)
         ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTap,
-        selectedFontSize: 13.0,
-        unselectedFontSize: 13.0,
       ),
     );
+  }
+
+  singlechild({String?title, IconData?icon, Color?color}) {
+    return Container(
+        color: color,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: 60,
+              color: Colors.white,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+
+          ],
+        ));
   }
 }

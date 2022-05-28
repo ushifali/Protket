@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import 'package:protekt/login.dart';
 
 class SettingsPage extends StatefulWidget {
   @override
@@ -14,9 +15,12 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         title: Text(
           "Settings",
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500,color: Colors.black),
+          style: TextStyle(
+              fontSize: 25, fontWeight: FontWeight.w500, color: Colors.black),
         ),
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: Theme
+            .of(context)
+            .scaffoldBackgroundColor,
         elevation: 1,
         leading: IconButton(
           onPressed: () {
@@ -43,8 +47,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   width: 8,
                 ),
                 Text(
-                  "Account",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  "Account Settings",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -55,11 +59,7 @@ class _SettingsPageState extends State<SettingsPage> {
             SizedBox(
               height: 10,
             ),
-            buildAccountOptionRow(context, "Change password"),
-            buildAccountOptionRow(context, "Content settings"),
-            buildAccountOptionRow(context, "Social"),
-            buildAccountOptionRow(context, "Language"),
-            buildAccountOptionRow(context, "Privacy and security"),
+
             SizedBox(
               height: 40,
             ),
@@ -118,7 +118,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
 
             SizedBox(
-              height:30,
+              height: 30,
             ),
 
             Row(
@@ -136,6 +136,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
                 Container(
                   height: 40,
+
                   child: LiteRollingSwitch(
                     value: false,
                     textOn: "On",
@@ -155,90 +156,38 @@ class _SettingsPageState extends State<SettingsPage> {
 
 
             SizedBox(
-              height:20,
+              height: 30,
             ),
 
             Center(
-              child: OutlineButton(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                onPressed: () {},
-                child: Text("LOG OUT",
-                    style: TextStyle(
-                        fontSize: 16, letterSpacing: 2.2, color: Colors.black)),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-
-  Row buildNotificationOptionRow(String title, bool isActive) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
-              color: Colors.grey[600]),
-        ),
-        Transform.scale(
-            scale: 0.7,
-            child: CupertinoSwitch(
-              value: isActive,
-              onChanged: (bool val) {},
-            ))
-      ],
-    );
-  }
-
-  GestureDetector buildAccountOptionRow(BuildContext context, String title) {
-    return GestureDetector(
-      onTap: () {
-        showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: Text(title),
-                content: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text("Option 1"),
-                    Text("Option 2"),
-                    Text("Option 3"),
-                  ],
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()),
+                  );
+                },
+                child: Text(
+                  'Log Out',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
-                actions: [
-                  FlatButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Text("Close")),
-                ],
-              );
-            });
-      },
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: Colors.grey[600],
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    fixedSize: const Size(240, 55),
+                    side: BorderSide(color: Colors.black),
+                    //do not give padding buttons wont be of same size
+                    // padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                    textStyle: TextStyle(
+                      fontSize: 22,
+                      fontFamily: 'SignikaNegative',
+                      //fontWeight: FontWeight.bold
+                    )),
               ),
             ),
-            Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.grey,
-            ),
+
           ],
         ),
       ),

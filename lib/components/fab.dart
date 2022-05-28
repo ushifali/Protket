@@ -20,10 +20,10 @@ class float extends StatelessWidget{
             },
           ),
         ),
-        backgroundColor: Colors.indigo[600], //background color of scaffold
+        backgroundColor: Colors.yellow[800], //background color of scaffold
         appBar: AppBar(
           title:Text("Floating Action Button"), //title of app
-          backgroundColor: Colors.indigo[500], //background color of app bar
+          backgroundColor: Colors.yellow[800], //background color of app bar
         ),
 
         body: Center(
