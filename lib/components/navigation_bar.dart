@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../on_login_pages/Audio_Record.dart';
 import '../on_login_pages/fake_call.dart';
 import '../on_login_pages/homepage.dart';
 
 class BottomBar extends StatefulWidget {
-  BottomBar({Key?key}) : super(key: key);
+  BottomBar({Key? key}) : super(key: key);
 
   @override
   _BottomBarState createState() => _BottomBarState();
@@ -29,16 +30,14 @@ class _BottomBarState extends State<BottomBar> {
             this._pageController.animateToPage(index,
                 duration: Duration(milliseconds: 500), curve: Curves.easeIn);
           },
-
           selectedItemColor: Colors.black,
           unselectedItemColor: Colors.grey,
           items: <BottomNavigationBarItem>[
+            new BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
             new BottomNavigationBarItem(
-                icon: Icon(Icons.home), label: "Home"),
-            new BottomNavigationBarItem(icon: Icon(Icons.call), label: "Fake Call"),
+                icon: Icon(Icons.record_voice_over), label: "Audio Record"),
             new BottomNavigationBarItem(
                 icon: Icon(Icons.message), label: "Messages"),
-
           ]),
       body: PageView(
         controller: _pageController,
@@ -49,14 +48,14 @@ class _BottomBarState extends State<BottomBar> {
         },
         children: [
           Homepage(),
-         Fake_Call(),
+          Audio_Record(),
           singlechild(title: "Call", icon: Icons.call, color: Colors.blue)
         ],
       ),
     );
   }
 
-  singlechild({String?title, IconData?icon, Color?color}) {
+  singlechild({String? title, IconData? icon, Color? color}) {
     return Container(
         color: color,
         child: Column(
@@ -70,7 +69,6 @@ class _BottomBarState extends State<BottomBar> {
             SizedBox(
               height: 20,
             ),
-
           ],
         ));
   }
