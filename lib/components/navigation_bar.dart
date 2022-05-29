@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:protekt/on_login_pages/Emergency_Contacts.dart';
 
 import '../on_login_pages/Audio_Record.dart';
 import '../on_login_pages/fake_call.dart';
@@ -37,7 +38,7 @@ class _BottomBarState extends State<BottomBar> {
             new BottomNavigationBarItem(
                 icon: Icon(Icons.record_voice_over), label: "Audio Record"),
             new BottomNavigationBarItem(
-                icon: Icon(Icons.message), label: "Messages"),
+                icon: Icon(Icons.phone), label: "Emergency"),
           ]),
       body: PageView(
         controller: _pageController,
@@ -49,7 +50,9 @@ class _BottomBarState extends State<BottomBar> {
         children: [
           Homepage(),
           Audio_Record(),
-          singlechild(title: "Call", icon: Icons.call, color: Colors.blue)
+          Emergency_Contacts(
+
+          )
         ],
       ),
     );

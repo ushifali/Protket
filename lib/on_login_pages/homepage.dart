@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:protekt/on_login_pages/get_your_loaction.dart';
 import 'package:protekt/on_login_pages/settings.dart';
 
 import 'Audio_Record.dart';
@@ -167,6 +168,25 @@ class _HomepageState extends State<Homepage> {
             ],
           ),
         ),
+      ),
+
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.amber,
+        child: Icon(Icons.location_on_rounded, color: Colors.black,),
+        shape: RoundedRectangleBorder(
+          side: BorderSide(color: Colors.black, width: 1.0),
+            borderRadius: BorderRadius.vertical(top: Radius.elliptical(100, 100),bottom: Radius.circular(100),
+                ),
+            ),
+
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const Get_Location()),
+          );
+        },
+
       ),
     );
   }
