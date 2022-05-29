@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -12,7 +14,7 @@ class CurrentLocationScreen extends StatefulWidget {
 class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
   late GoogleMapController googleMapController;
 
-  static const CameraPosition initialCameraPosition = CameraPosition(target: LatLng(37.42796133580664, -122.085749655962), zoom: 14);
+  static const CameraPosition initialCameraPosition = CameraPosition(target: LatLng(47.42796133580664, -122.085749655962), zoom: 14);
 
   Set<Marker> markers = {};
 
@@ -20,8 +22,9 @@ class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("User current location"),
-        centerTitle: true,
+        title: const Text("Your current location"),
+        backgroundColor: Colors.black,
+
       ),
       body: GoogleMap(
         initialCameraPosition: initialCameraPosition,
@@ -33,6 +36,12 @@ class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
         },
       ),
       floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: Colors.amber,
+        shape: RoundedRectangleBorder(
+          side: BorderSide(color: Colors.black, width: 1.0),
+          borderRadius: BorderRadius.vertical(top: Radius.elliptical(100, 100),bottom: Radius.circular(100),
+          ),
+        ),
         onPressed: () async {
           Position position = await _determinePosition();
 
@@ -47,8 +56,9 @@ class _CurrentLocationScreenState extends State<CurrentLocationScreen> {
           setState(() {});
 
         },
-        label: const Text("Current Location"),
-        icon: const Icon(Icons.location_history),
+
+        label: const Text("Current Location",style: TextStyle(color: Colors.black),),
+        icon: const Icon(Icons.location_history, color: Colors.black,),
       ),
     );
   }
