@@ -1,6 +1,5 @@
 import 'dart:ui';
-
-import 'package:flutter/gestures.dart';
+import 'Emergency_Contacts.dart';
 import 'package:flutter/material.dart';
 import 'package:protekt/on_login_pages/get_your_loaction.dart';
 import 'package:protekt/on_login_pages/settings.dart';
@@ -16,19 +15,6 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  int _selectedIndex = 0;
-
-  List<Widget> _widgetOptions = <Widget>[
-    Text('Messgaes Screen'),
-    Text('Profile Screen'),
-  ];
-
-  void _onItemTap(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +47,7 @@ class _HomepageState extends State<Homepage> {
                       'Protekt',
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: 50.0,
+                        fontSize: 45.0,
                         fontWeight: FontWeight.w900,
                         fontFamily: 'SignikaNegative',
                         letterSpacing: 3.0,
@@ -78,7 +64,7 @@ class _HomepageState extends State<Homepage> {
                     'Helping people get to their destination safely',
                     style: TextStyle(
                       color: Colors.black45,
-                      fontSize: 30,
+                      fontSize:28 ,
                       fontFamily: 'SignikaNegative',
                       fontWeight: FontWeight.bold,
                     ),
@@ -115,7 +101,7 @@ class _HomepageState extends State<Homepage> {
                   );
                 },
                 child: Text(
-                  'Make Fake Calls And Record Audio ',
+                  'Make A Fake Call',
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -154,6 +140,37 @@ class _HomepageState extends State<Homepage> {
                 ),
                 style: ElevatedButton.styleFrom(
                     primary: Colors.amber[300],
+                    fixedSize: const Size(320, 55),
+                    side: BorderSide(color: Colors.black),
+                    //do not give padding buttons wont be of same size
+                    // padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                    textStyle: TextStyle(
+                      fontSize: 22,
+                      fontFamily: 'SignikaNegative',
+                      //fontWeight: FontWeight.bold
+                    )),
+              ),
+
+              SizedBox(
+                height: 20,
+              ),
+
+
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Emergency_Contact()),
+                  );
+                },
+                child: Text(
+                  'Add Contacts to Emergency list',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
                     fixedSize: const Size(320, 55),
                     side: BorderSide(color: Colors.black),
                     //do not give padding buttons wont be of same size

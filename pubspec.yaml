@@ -39,8 +39,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_maps_flutter: ^2.1.6
   geolocator: ^8.2.1
-
-
+  permission_handler: ^9.2.0
+  flutter_native_contact_picker: ^0.0.3
 
 
 
@@ -80,6 +80,7 @@ flutter:
     - assets/images/walkhomegif.gif
     - assets/images/google.png
     - assets/images/mike.png
+    - assets/images/profile.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

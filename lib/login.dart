@@ -1,11 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:protekt/on_login_pages/page.dart';
-import 'package:protekt/on_login_pages/settings.dart';
 import 'package:protekt/register.dart';
-import 'additional_designs/custom_clippers.dart';
-import 'additional_designs/clipper_shadows.dart';
 import 'components/navigation_bar.dart';
 import 'on_login_pages/homepage.dart';
 

@@ -50,9 +50,7 @@ class _BottomBarState extends State<BottomBar> {
         children: [
           Homepage(),
           Audio_Record(),
-          Emergency_Contacts(
-
-          )
+          Emergency_Contact()
         ],
       ),
     );
