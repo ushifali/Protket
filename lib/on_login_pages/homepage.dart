@@ -3,6 +3,7 @@ import 'Emergency_Contacts.dart';
 import 'package:flutter/material.dart';
 import 'package:protekt/on_login_pages/get_your_loaction.dart';
 import 'package:protekt/on_login_pages/settings.dart';
+import 'Send_location.dart';
 
 import 'Audio_Record.dart';
 import 'fake_call.dart';
@@ -180,6 +181,43 @@ class _HomepageState extends State<Homepage> {
                       fontFamily: 'SignikaNegative',
                       //fontWeight: FontWeight.bold
                     )),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Send_Location()),
+                  );
+                },
+                child: Text(
+                  'Message your Location',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.lightGreen[300],
+                    fixedSize: const Size(320, 55),
+                    side: BorderSide(color: Colors.black),
+                    //do not give padding buttons wont be of same size
+                    // padding: EdgeInsets.symmetric(horizontal: 80, vertical: 15),
+                    textStyle: TextStyle(
+                      fontSize: 22,
+                      fontFamily: 'SignikaNegative',
+                      //fontWeight: FontWeight.bold
+                    )),
+              ),
+
+              SizedBox(
+                height: 20,
+              ),
+
+              SizedBox(
+                height: 20,
               ),
 
             ],

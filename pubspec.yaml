@@ -40,14 +40,16 @@ dependencies:
   google_maps_flutter: ^2.1.6
   geolocator: ^8.2.1
   permission_handler: ^9.2.0
-  flutter_native_contact_picker: ^0.0.3
   firebase_core: ^1.17.1
   firebase_auth: ^3.3.19
   google_sign_in: ^5.3.2
   provider: ^6.0.3
   fluttertoast: ^8.0.9
-
-
+  fluttercontactpicker: ^4.7.0
+  url_launcher: ^6.1.2
+  geocoder2: ^1.1.2
+  geocode: ^1.0.1
+  shared_preferences: ^2.0.15
 
 
 dev_dependencies:

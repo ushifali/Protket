@@ -23,7 +23,11 @@ class Audio_Record extends StatelessWidget {
                           color: Colors.black,
                         ),
                         onPressed: () {
-
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SettingsPage()),
+                          );
                         },
                       )),
                   Align(
@@ -33,7 +37,7 @@ class Audio_Record extends StatelessWidget {
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 40.0,
-                        fontWeight: FontWeight.w900,
+                        fontWeight: FontWeight.w600,
                         fontFamily: 'SignikaNegative',
                         letterSpacing: 3.0,
                       ),
@@ -59,7 +63,7 @@ class Audio_Record extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 40.0,
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w600,
                     fontFamily: 'SignikaNegative',
                     letterSpacing: 3.0,
                   ),
