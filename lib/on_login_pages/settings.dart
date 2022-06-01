@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import 'package:protekt/firebase_components/firebase_signin.dart';
 import 'package:protekt/login.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -47,10 +49,50 @@ class _SettingsPageState extends State<SettingsPage> {
                   width: 8,
                 ),
                 Text(
-                  "Account Settings",
+                  "Account Details",
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ],
+
+            ),
+            Divider(
+              height: 15,
+              thickness: 2,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Name",
+              style: TextStyle(fontSize: 22,fontFamily: 'SignikaNegative',),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+
+            Text(
+              "${FirebaseAuth.instance.currentUser!.displayName}",
+              style: TextStyle(fontSize: 22, fontFamily: 'SignikaNegative',color: Colors.grey),
+            ),
+
+            SizedBox(
+              height: 20,
+            ),
+
+            Text(
+              "Registered Email:",
+              style: TextStyle(fontSize: 22, fontFamily: 'SignikaNegative',),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+
+            Text(
+              "${FirebaseAuth.instance.currentUser!.email}",
+              style: TextStyle(fontSize: 22, fontFamily: 'SignikaNegative',color: Colors.grey),
+            ),
+            SizedBox(
+              height: 10,
             ),
             Divider(
               height: 15,
@@ -76,6 +118,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   "Advanced Settings",
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
+
+
               ],
             ),
             Divider(
@@ -91,6 +135,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 Text("Enable SOS on shake",
                   style: TextStyle(
                     fontSize: 20,
+                    fontFamily: 'SignikaNegative',
+                    color: Colors.grey
                   ),
                 ),
                 SizedBox(
@@ -126,6 +172,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 Text("Enable live location sharing",
                   style: TextStyle(
                     fontSize: 20,
+                    fontFamily: 'SignikaNegative',
+                    color: Colors.grey
                   ),
                 ),
 
@@ -161,7 +209,8 @@ class _SettingsPageState extends State<SettingsPage> {
 
             Center(
               child: ElevatedButton(
-                onPressed: () {
+                onPressed: () async{
+                  await FirebaseServices().googleSignOut();
                   Navigator.push(
                     context,
                     MaterialPageRoute(

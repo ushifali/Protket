@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:protekt/components/navigation_bar.dart';
 import 'openscreen.dart';
 
 
@@ -11,14 +13,23 @@ Future<void> main()  async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+   MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner:false,
-      home: OpenScreen(),
-    );
+    if(FirebaseAuth.instance.currentUser?.uid == null){
+// not logged
+      return MaterialApp(
+        debugShowCheckedModeBanner:false,
+        home: OpenScreen(),
+      );
+    } else {
+      return MaterialApp(
+        debugShowCheckedModeBanner:false,
+        home: BottomBar(),
+      );
+// logged
+    }
+
   }
 }
-
