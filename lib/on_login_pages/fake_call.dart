@@ -1,12 +1,46 @@
+import 'dart:async';
 import 'dart:math';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../components/navigation_bar.dart';
 import 'homepage.dart';
 
-class Fake_Call extends StatelessWidget {
+class Fake_Call extends StatefulWidget {
+  @override
+  State<Fake_Call> createState() => _Fake_CallState();
+}
+
+class _Fake_CallState extends State<Fake_Call> {
+  Duration duration = Duration();
+  Timer ?timer;
+
+  @override
+  void initState()
+  {
+    super.initState();
+
+    startTimer();
+  }
+
+  void addTime()
+  {
+    final addSeconds = 1;
+    setState(() {
+      final seconds = duration.inSeconds +addSeconds;
+      duration = Duration(seconds: seconds);
+    });
+  }
+
+  void startTimer()
+  {
+    timer = Timer.periodic(Duration(seconds: 1), (_) => addTime());
+  }
   @override
   Widget build(BuildContext context) {
+       String twoDigits(int n) => n.toString().padLeft(2,'0');
+    final minutes = twoDigits(duration.inMinutes.remainder(60));
+    final seconds = twoDigits(duration.inSeconds.remainder(60));
+
     return Scaffold(
         backgroundColor: Colors.black,
         body: SafeArea(
@@ -61,7 +95,7 @@ class Fake_Call extends StatelessWidget {
                 Align(
                   alignment: Alignment.center,
                   child: Text(
-                    '00 : 00',
+                    '$minutes:$seconds',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 40.0,

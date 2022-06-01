@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "100275721956",
+    "project_id": "protekt-351709",
+    "storage_bucket": "protekt-351709.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100275721956:android:95e8f44315988097467ef1",
+        "android_client_info": {
+          "package_name": "com.example.protekt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100275721956-etmj3nge07o5ph2vgare4k24gboout94.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.protekt",
+            "certificate_hash": "6a823844a8d7a3022ebd76c6589a9685db919566"
+          }
+        },
+        {
+          "client_id": "100275721956-uigmrem1u438k4asqol2mi4k437mlioh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0e5hgO8m_QOKgn7MuE87dCRAvgJLfovU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100275721956-uigmrem1u438k4asqol2mi4k437mlioh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
