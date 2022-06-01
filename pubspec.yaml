@@ -47,9 +47,10 @@ dependencies:
   fluttertoast: ^8.0.9
   fluttercontactpicker: ^4.7.0
   url_launcher: ^6.1.2
-  geocoder2: ^1.1.2
-  geocode: ^1.0.1
   shared_preferences: ^2.0.15
+  path_provider: ^2.0.10
+  audio_session: ^0.1.7
+  flutter_sound: ^9.2.13
 
 
 dev_dependencies:
